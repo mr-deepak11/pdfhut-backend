@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: pdfhut-backend
+    env: node
+    buildCommand: apt-get update -qq && apt-get install -y poppler-utils qpdf && npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3000
